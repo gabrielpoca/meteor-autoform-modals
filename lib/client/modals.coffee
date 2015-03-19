@@ -39,6 +39,7 @@ Template.autoformModals.rendered = ->
 			'cmLabelClass',
 			'cmInputColClass',
 			'cmPlaceholder',
+ 			'cmSchema'
 		]
 		delete Session.keys[key] for key in sessionKeys
 
@@ -59,6 +60,8 @@ Template.autoformModals.events
 					cmOnSuccessCallback?()
 
 helpers =
+	cmSchema: () ->
+		Session.get 'cmSchema'
 	cmCollection: () ->
 		Session.get 'cmCollection'
 	cmOperation: () ->
@@ -119,6 +122,7 @@ Template.afModal.events
 
 		html = t.$('*').html()
 
+		Session.set 'cmSchema', t.data.schema
 		Session.set 'cmCollection', t.data.collection
 		Session.set 'cmOperation', t.data.operation
 		Session.set 'cmFields', t.data.fields
@@ -168,6 +172,5 @@ Template.afModal.events
 			Session.set 'cmPrompt', 'Are you sure?'
 		else
 			Session.set 'cmPrompt', ''
-
 		$('#afModal').data('bs.modal').options.backdrop = t.data.backdrop or true
 		$('#afModal').modal 'show'
