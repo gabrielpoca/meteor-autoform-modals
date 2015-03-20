@@ -1,11 +1,13 @@
 Meteor [Autoform](https://github.com/aldeed/meteor-autoform) Modals
 ======================
 
+This is a fork. The reason I'm not contributing to the original is because my prs don't get attention and I need this done. Also, the code can use some clean up.
+
 Adds bootstrap modals to insert/update/remove docs from Meteor collections.
 
 ## Setup ##
 
-1. ```meteor add yogiben:autoform-modals```
+1. ```meteor add gabrielpoca:autoform-modals```
 2. Include the template in the layouts that will use the modals `{{> autoformModals}}`
 3. Use `afModal` template to create a button that will trigger the modal
 
@@ -71,6 +73,7 @@ inputColClass='col-sm-9'
 * ```backdrop``` disables or enables modal-backdrop. Defaults to true (modal can be dismissed by mouse click). To disable use 'static' value. (See more [here](http://getbootstrap.com/javascript/#modals-options))
 * ```meteormethod``` if specified meteor method will be called on submit. This has the same effect as passing `type="method"` and `meteormethod` to autoform template. See autoform docs for more details.
 * ```onSuccess``` function to be called when operation succeeds. Currently it's supported for `operation="remove"` only.
+* ```schema```defines the schema to be used.
 
 ## Callbacks/Hooks ##
 It's possible to add your own autoform [callbacks/hooks](https://github.com/aldeed/meteor-autoform#callbackshooks) by setting the `formId`.
